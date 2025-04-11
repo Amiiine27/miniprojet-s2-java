@@ -1,4 +1,4 @@
-package model;
+package org.example.model;
 
 import java.time.LocalDateTime;
 
@@ -26,6 +26,10 @@ public class Vol {
 
     public void annulerVol() {
         this.etat = "Annulé";
+    }
+
+    public String getNumeroVol() {
+        return numeroVol;
     }
 
     public static Vol obtenirVol(String id) {
