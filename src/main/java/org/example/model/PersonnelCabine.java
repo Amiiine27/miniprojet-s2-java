@@ -1,7 +1,11 @@
-package org.example.model;
+package model;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PersonnelCabine extends Employe {
     private String qualification;
+    private List<Vol> vols = new ArrayList<>();
 
     public PersonnelCabine(String identifiant, String nom, String adresse, String contact,
                            String numeroEmploye, String dateEmbauche,
@@ -10,12 +14,12 @@ public class PersonnelCabine extends Employe {
         this.qualification = qualification;
     }
 
-    public void affecterVol() {
-        // logique d'affectation
+    public void affecterVol(Vol vol) {
+        vols.add(vol);
     }
 
-    public void obtenirVol() {
-        // logique d'affichage des vols
+    public List<Vol> obtenirVol() {
+        return vols;
     }
 
     @Override

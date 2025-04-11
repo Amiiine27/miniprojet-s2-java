@@ -1,4 +1,4 @@
-package org.example.model;
+package model;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -28,11 +28,12 @@ public class Vol {
     }
 
     public void planifierVol() {
-        // Ajout dans une liste de planning
+        GestionVols.ajouterVol(this);
     }
 
     public void annulerVol() {
         this.etat = "Annulé";
+        GestionVols.annulerVol(this.numeroVol);
     }
 
     public void modifierVol(LocalDateTime depart, LocalDateTime arrivee) {
@@ -42,5 +43,30 @@ public class Vol {
 
     public List<Passager> listingPassager() {
         return passagers;
+    }
+
+    public String getNumeroVol() {
+        return numeroVol;
+    }
+
+    public static Vol obtenirVol(String id) {
+        for (Vol vol : GestionVols.getVolsPlannifies()) {
+            if (vol.getNumeroVol().equals(id)) {
+                return vol;
+            }
+        }
+        return null;
+    }
+
+    public void affecterAvion(Avion avion) {
+        this.avion = avion;
+    }
+
+    public void affecterPilote(Pilote pilote) {
+        this.pilote = pilote;
+    }
+
+    public void affecterPersonnelCabine(PersonnelCabine pc) {
+        this.personnelCabine = pc;
     }
 }
