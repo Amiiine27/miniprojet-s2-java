@@ -24,4 +24,12 @@ public class Passager extends Personne {
     public List<Reservation> obtenirReservations() {
         return reservations;
     }
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public String getPasseport() {
+        return passeport;
+    }
 }

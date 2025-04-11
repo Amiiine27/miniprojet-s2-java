@@ -70,12 +70,4 @@ public class Vol {
     public String getEtat() {
         return etat;
     }
-
-    public String getOrigine() {
-        return origine;
-    }
-
-    public String getDestination() {
-        return destination;
-    }
 }

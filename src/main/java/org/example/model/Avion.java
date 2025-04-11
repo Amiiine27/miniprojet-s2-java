@@ -17,18 +17,23 @@ public class Avion {
         this.vols = new ArrayList<>();
     }
 
-    public void affecterVol(Vol vol) {
-        vols.add(vol);
+    public boolean affecterVol(Vol vol) {
+        if (verifierDisponibilite(vol.getDateHeureDepart(), vol.getDateHeureArrivee())) {
+            vols.add(vol);
+            vol.setAvion(this);
+            return true;
+        }
+        return false;
     }
+
 
     public boolean verifierDisponibilite(LocalDateTime nouvelleDateDepart, LocalDateTime nouvelleDateArrivee) {
         for (Vol v : vols) {
-            // S'il y a un chevauchement
             if (!(nouvelleDateArrivee.isBefore(v.getDateHeureDepart()) ||
                     nouvelleDateDepart.isAfter(v.getDateHeureArrivee()))) {
-                return false; // conflit trouvé
+                return false;
             }
         }
-        return true; // pas de conflit
+        return true;
     }
 }

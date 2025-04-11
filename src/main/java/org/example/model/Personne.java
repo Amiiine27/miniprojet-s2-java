@@ -17,4 +17,20 @@ public abstract class Personne {
         return String.format("ID: %s, Nom: %s, Adresse: %s, Contact: %s",
                 identifiant, nom, adresse, contact);
     }
+
+    public String getIdentifiant() {
+        return identifiant;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public String getContact() {
+        return contact;
+    }
 }
