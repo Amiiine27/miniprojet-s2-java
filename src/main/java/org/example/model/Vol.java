@@ -54,4 +54,13 @@ public class Vol {
     public String getNumeroVol() {
         return numeroVol;
     }
+
+    public LocalDateTime getDateHeureDepart() {
+        return dateHeureDepart;
+    }
+
+    public LocalDateTime getDateHeureArrivee() {
+        return dateHeureArrivee;
+    }
+
 }

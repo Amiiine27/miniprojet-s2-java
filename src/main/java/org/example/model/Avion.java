@@ -1,5 +1,6 @@
 package org.example.model;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +21,14 @@ public class Avion {
         vols.add(vol);
     }
 
-    public boolean verifierDisponibilite() {
-        return true; // logique à enrichir selon le planning
+    public boolean verifierDisponibilite(LocalDateTime nouvelleDateDepart, LocalDateTime nouvelleDateArrivee) {
+        for (Vol v : vols) {
+            // S'il y a un chevauchement
+            if (!(nouvelleDateArrivee.isBefore(v.getDateHeureDepart()) ||
+                    nouvelleDateDepart.isAfter(v.getDateHeureArrivee()))) {
+                return false; // conflit trouvé
+            }
+        }
+        return true; // pas de conflit
     }
 }
