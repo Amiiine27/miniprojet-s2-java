@@ -1,4 +1,4 @@
-package model;
+package org.example.model;
 
 public abstract class Personne {
     protected String identifiant;

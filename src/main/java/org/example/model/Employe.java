@@ -1,4 +1,4 @@
-package model;
+package org.example.model;
 
 public abstract class Employe extends Personne {
     protected String numeroEmploye;
