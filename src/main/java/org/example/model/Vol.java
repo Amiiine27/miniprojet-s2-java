@@ -1,6 +1,8 @@
 package org.example.model;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Vol {
     private String numeroVol;
@@ -13,6 +15,9 @@ public class Vol {
     private Pilote pilote;
     private PersonnelCabine personnelCabine;
 
+    // Planning statique partagé
+    private static List<Vol> planning = new ArrayList<>();
+
     public Vol(String numeroVol, String origine, String destination,
                LocalDateTime dateHeureDepart, LocalDateTime dateHeureArrivee, String etat) {
         this.numeroVol = numeroVol;
@@ -24,11 +29,21 @@ public class Vol {
     }
 
     public void planifierVol() {
-        // ajout dans un planning
+        planning.add(this);
     }
 
     public void annulerVol() {
         this.etat = "Annulé";
+        planning.remove(this);
+    }
+
+    public static Vol obtenirVol(String numeroRecherche) {
+        for (Vol vol : planning) {
+            if (vol.numeroVol.equals(numeroRecherche)) {
+                return vol;
+            }
+        }
+        return null;
     }
 
     public void affecterVol(Pilote pilote, PersonnelCabine cabine) {
@@ -36,8 +51,7 @@ public class Vol {
         this.personnelCabine = cabine;
     }
 
-    public static Vol obtenirVol(String numeroRecherche) {
-        // Cette méthode simulerait la recherche si une liste de vols existait
-        return null; // placeholder pour conformité
+    public String getNumeroVol() {
+        return numeroVol;
     }
 }
