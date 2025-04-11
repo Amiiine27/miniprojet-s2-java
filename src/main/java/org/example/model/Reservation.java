@@ -1,4 +1,4 @@
-package org.example.model;
+package model;
 
 import java.time.LocalDate;
 
@@ -15,19 +15,7 @@ public class Reservation {
         this.vol = vol;
     }
 
-    public void confirmerReservation() {
-        statut = "Confirmée";
-    }
-
     public void annulerReservation() {
         statut = "Annulée";
-    }
-
-    public void modifierReservation(LocalDate nouvelleDate) {
-        this.dateReservation = nouvelleDate;
-    }
-
-    public Vol getVol() {
-        return vol;
     }
 }
